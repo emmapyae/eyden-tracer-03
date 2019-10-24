@@ -37,6 +37,8 @@ public:
 	{
 		CBoundingBox bounds;
 		// --- PUT YOUR CODE HERE ---
+		// bounds for the plane
+		bounds.extend(m_origin);
 		return bounds;
 	}
 	

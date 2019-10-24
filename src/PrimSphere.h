@@ -66,6 +66,13 @@ public:
 	{
 		CBoundingBox res;
 		// --- PUT YOUR CODE HERE ---
+		// extending the bound by adding the circle primitive
+		// res.extend(Vec3f(m_center[0] + m_radius,m_center[1],m_center[2]));
+		// res.extend(Vec3f(m_center[0], m_center[1] + m_radius, m_center[2]));
+		// res.extend(Vec3f(m_center[0], m_center[1], m_center[2] + m_radius));
+		res.m_min = std::numeric_limits<Vec3f>::infinity();
+		res.m_max = -1 * std::numeric_limits<Vec3f>::infinity();
+		res.extend(m_center + Vec3f(m_radius, m_radius, m_radius));
 		return res;
 	}
 	

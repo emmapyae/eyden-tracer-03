@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "BoundingBox.h"
 
 #include "CameraPerspective.h"
 
@@ -14,13 +15,15 @@
 #include "LightArea.h"
 #include "timer.h"
 
+#include "Scene.cpp"
+
 Mat RenderFrame(void)
 {
 	// Define a scene
 	CScene scene;
 	
 	// Load scene description
-	scene.ParseOBJ("../../../data/cow.obj");
+	scene.ParseOBJ("../data/cow.obj");
 
 #ifdef ENABLE_BSP
 	// Build BSPTree
@@ -49,7 +52,7 @@ Mat RenderFrame(void)
 
 int main(int argc, char* argv[])
 {
-	DirectGraphicalModels::Timer::start("Rebdering frame... ");
+	DirectGraphicalModels::Timer::start("Rendering frame... ");
 	Mat img = RenderFrame();
 	DirectGraphicalModels::Timer::stop();
 	imshow("Image", img);

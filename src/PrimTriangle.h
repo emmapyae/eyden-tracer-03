@@ -69,6 +69,12 @@ public:
 	{
 		CBoundingBox res;
 		// --- PUT YOUR CODE HERE ---
+		// extending the bound by adding the triangle primitives
+		res.m_min = std::numeric_limits<Vec3f>::infinity();
+		res.m_max = -1 * std::numeric_limits<Vec3f>::infinity();
+		res.extend(m_a);
+		res.extend(m_b);
+		res.extend(m_c);
 		return res;
 	}
 	
